@@ -3,6 +3,7 @@ from jira import JIRA
 import requests
 from requests.auth import HTTPBasicAuth
 import json
+import config
 
 
 class JiraTask:
@@ -98,8 +99,8 @@ def parseJiraIssues(issues, jira, auth):
 jql = 'project = TWO' #PLMDLP
 
 
-uid = 'g.melnikov' #getpass.getpass('Jira Login:')
-pswd = 'твой пароль' #getpass.getpass('Jira Password:')
+uid = config.login #getpass.getpass('Jira Login:')
+pswd = config.password #getpass.getpass('Jira Password:')
 
 jira = jiraClient(uid, pswd) #инициализация клиента jira
 issues = downloadJiraIssues(jql, jira)
@@ -109,5 +110,5 @@ tasks = parseJiraIssues(issues, jira, auth)
 df = pd.DataFrame([obj.__dict__ for obj in tasks])
 
 #сохраним файл cvs из таблицы задач спринта
-df.to_excel('C:/Users/g.melnikov/Desktop/Python/file_040723.xlsx')
+df.to_excel('/Users/Maxim/Documents/pythonProjects/jira/file_040723.xlsx')
 
