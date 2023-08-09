@@ -111,6 +111,3 @@ df = pd.DataFrame([obj.__dict__ for obj in tasks])
 #сохраним файл cvs из таблицы задач спринта
 df.to_excel('C:/Users/g.melnikov/Desktop/Python/file_040723.xlsx')
 
-
-#сохраним файл cvs из таблицы задач спринта
-#сохраним файл cvs из таблицы задач спринта
